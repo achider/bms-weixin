@@ -1,0 +1,1 @@
+<view><show-book-list wx:if="{{a}}" u-i="01b4a7fc-0" bind:__l="__l" u-p="{{a}}"></show-book-list></view>

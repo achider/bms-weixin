@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "根据译者名查询",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "show-books": "../../components/showBooks/showBooks"
+  }
+}

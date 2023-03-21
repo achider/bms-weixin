@@ -1,0 +1,34 @@
+.listBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  font-size: 30rpx;
+  text-align: center;
+}
+.listBox .left {
+  width: 220rpx;
+  height: 1100rpx;
+}
+.listBox .left view {
+  margin-top: 5rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.listBox .left .active {
+  background: #f00;
+  color: #fff;
+}
+.listBox .right {
+  width: 540rpx;
+  height: 1100rpx;
+}
+.listBox .right image {
+  width: 100%;
+}
+.listBox .right .text {
+  font-size: 40rpx;
+  font-weight: bold;
+}

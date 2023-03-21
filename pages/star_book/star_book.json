@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "收藏图书",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "show-book-list": "../../components/showBookList/showBookList"
+  }
+}

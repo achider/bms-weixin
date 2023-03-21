@@ -1,0 +1,1 @@
+<view class="list"><view wx:for="{{a}}" wx:for-item="item" wx:key="e" class="list1" bindtap="{{item.f}}"><image src="{{item.b}}" mode="widthFix">{{item.a}}</image><view class="list2"><view>书  名：{{item.c}}</view><view>作者名：{{item.d}}</view></view></view></view><view class="text">-----------无更多结果----------</view>

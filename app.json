@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/country/country",
+    "pages/book_list/book_list",
+    "pages/publishing_house/publishing_house",
+    "pages/translator/translator",
+    "pages/author/author",
+    "pages/book_detail/book_detail",
+    "pages/book_loan_list/book_loan_list",
+    "pages/star_book/star_book",
+    "pages/loan_book/loan_book",
+    "pages/loan_book_list/loan_book_list",
+    "pages/return_book/return_book",
+    "pages/help/help",
+    "pages/isbn/isbn",
+    "pages/history/history"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "图书管理系统",
+    "navigationBarBackgroundColor": "#000",
+    "backgroundColor": "#fff"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/icon/首页.png",
+        "selectedIconPath": "static/icon/首页 (1).png"
+      },
+      {
+        "pagePath": "pages/country/country",
+        "text": "国家",
+        "iconPath": "static/icon/international (1).png",
+        "selectedIconPath": "static/icon/international.png"
+      },
+      {
+        "pagePath": "pages/book_loan_list/book_loan_list",
+        "text": "借书单",
+        "iconPath": "static/icon/list.png",
+        "selectedIconPath": "static/icon/list (1).png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "我的",
+        "iconPath": "static/icon/user.png",
+        "selectedIconPath": "static/icon/user (1).png"
+      }
+    ],
+    "color": "#ccc",
+    "selectedColor": "#f70000",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {}
+}

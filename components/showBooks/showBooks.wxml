@@ -1,0 +1,1 @@
+<view class="list"><view wx:for="{{a}}" wx:for-item="item" wx:key="d" class="list2" bindtap="{{item.e}}"><image src="{{item.a}}" mode="widthFix"></image><view>{{item.b}}</view><view>{{item.c}}</view></view></view><view class="text">-----------无更多结果----------</view>

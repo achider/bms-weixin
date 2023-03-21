@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "isbn查询",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "show-books": "../../components/showBooks/showBooks"
+  }
+}

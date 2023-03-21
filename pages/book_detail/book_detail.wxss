@@ -1,0 +1,38 @@
+.main {
+  overflow: hidden;
+  background: #e8e8e8;
+}
+.main image {
+  height: 100%;
+  width: 100%;
+}
+.main .text {
+  margin: 20rpx 15rpx;
+  border-radius: 20rpx;
+  background: #fff;
+}
+.main .text .text1 {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.books_nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  text-align: center;
+  height: 80rpx;
+  margin-right: 40rpx;
+}
+.books_nav image {
+  margin-right: 40rpx;
+  width: 100rpx;
+}
+.books_nav button {
+  margin: 6rpx 10rpx 0 0;
+  width: 300rpx;
+  color: #fff;
+  height: 70rpx;
+  font-size: 30rpx;
+}

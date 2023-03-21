@@ -1,0 +1,1 @@
+<view class="search"><view class="search1"><input type="text" placeholder="请输入isbn..." value="{{a}}" bindinput="{{b}}"/></view><button type="default" bindtap="{{c}}">搜索</button></view><show-books wx:if="{{d}}" u-i="ec60fa6c-0" bind:__l="__l" u-p="{{d}}"></show-books>
