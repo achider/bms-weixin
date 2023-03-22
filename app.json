@@ -8,12 +8,10 @@
     "pages/translator/translator",
     "pages/author/author",
     "pages/book_detail/book_detail",
-    "pages/book_loan_list/book_loan_list",
     "pages/star_book/star_book",
     "pages/loan_book/loan_book",
     "pages/loan_book_list/loan_book_list",
     "pages/return_book/return_book",
-    "pages/help/help",
     "pages/isbn/isbn",
     "pages/history/history"
   ],
@@ -34,14 +32,8 @@
       {
         "pagePath": "pages/country/country",
         "text": "国家",
-        "iconPath": "static/icon/international (1).png",
-        "selectedIconPath": "static/icon/international.png"
-      },
-      {
-        "pagePath": "pages/book_loan_list/book_loan_list",
-        "text": "借书单",
-        "iconPath": "static/icon/list.png",
-        "selectedIconPath": "static/icon/list (1).png"
+        "iconPath": "static/icon/international.png",
+        "selectedIconPath": "static/icon/international (1).png"
       },
       {
         "pagePath": "pages/home/home",

@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "借书单",
-  "usingComponents": {
-    "show-book-list": "../../components/showBookList/showBookList"
-  }
-}

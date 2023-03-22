@@ -23,7 +23,6 @@
   margin-left: 60rpx;
 }
 .side {
-  background: #b4b4b4;
   overflow: hidden;
 }
 .side swiper {
@@ -36,6 +35,7 @@
 }
 .side .list {
   display: flex;
+  background: #b4b4b4;
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-between;

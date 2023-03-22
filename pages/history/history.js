@@ -15,7 +15,8 @@ const _sfc_main = {
   },
   methods: {
     async getInf() {
-      const res = await utils_request.request("/look");
+      const res = await utils_request.request("/look?user_id=" + getApp().globalData.user_id);
+      console.log(res.results);
       this.infData = res.results;
     },
     tobook(id) {

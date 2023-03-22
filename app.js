@@ -10,16 +10,18 @@ if (!Math) {
   "./pages/translator/translator.js";
   "./pages/author/author.js";
   "./pages/book_detail/book_detail.js";
-  "./pages/book_loan_list/book_loan_list.js";
   "./pages/star_book/star_book.js";
   "./pages/loan_book/loan_book.js";
   "./pages/loan_book_list/loan_book_list.js";
   "./pages/return_book/return_book.js";
-  "./pages/help/help.js";
   "./pages/isbn/isbn.js";
   "./pages/history/history.js";
 }
-const _sfc_main = {};
+const _sfc_main = {
+  globalData: {
+    user_id: [0]
+  }
+};
 const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/achider/Documents/GitHub/bms/App.vue"]]);
 function createApp() {
   const app = common_vendor.createSSRApp(App);

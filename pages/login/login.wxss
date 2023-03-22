@@ -1,0 +1,28 @@
+.login {
+  margin-top: 40rpx;
+}
+.login .list2 {
+  margin-bottom: 40rpx;
+  text-align: center;
+  font-size: 40rpx;
+}
+.login .list1 {
+  padding: 20rpx;
+  line-height: 2;
+  display: flex;
+  font-size: 30rpx;
+  border-top: 1rpx solid #e8e8e8;
+  display: flex;
+}
+.login .list1 text {
+  margin-top: 10rpx;
+  width: 120rpx;
+}
+.login .list1 input {
+  margin-top: 8rpx;
+  height: 60rpx;
+  width: 400rpx;
+}
+.login .list1 button {
+  width: 300rpx;
+}

@@ -14,7 +14,7 @@ const _sfc_main = {
   },
   methods: {
     async getInf() {
-      const res = await utils_request.request("/get?type=star_mark");
+      const res = await utils_request.request("/get?type=star_mark&user_id=" + getApp().globalData.user_id);
       this.infData = res.results;
     }
   },

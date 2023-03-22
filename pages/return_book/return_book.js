@@ -14,14 +14,14 @@ const _sfc_main = {
   },
   methods: {
     async getInf() {
-      const res = await utils_request.request("/get?type=loan_mark");
+      const res = await utils_request.request("/get?type=loan_mark&user_id=" + getApp().globalData.user_id);
       this.infData = res.results;
     },
     async return_book(id) {
-      await utils_request.request("/history?type=0&id=" + id);
+      await utils_request.request("/history?type=0&id=" + id + "&user_id=" + getApp().globalData.user_id);
     },
     async update(id) {
-      await utils_request.request("/update?type=loan_mark&id=" + id);
+      await utils_request.request("/update?type=loan_mark&id=" + id + "&user_id=" + getApp().globalData.user_id);
     },
     tobook(id) {
       common_vendor.index.navigateTo({
