@@ -18,9 +18,9 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "2.30.2",
+  "libVersion": "2.30.3",
   "appid": "wxa03208ecfdf00da8",
-  "projectname": "LibraryManagementSystem",
+  "projectname": "bms",
   "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
