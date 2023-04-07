@@ -6,20 +6,16 @@ if (!Math) {
   "./pages/home/home.js";
   "./pages/country/country.js";
   "./pages/book_list/book_list.js";
-  "./pages/publishing_house/publishing_house.js";
-  "./pages/translator/translator.js";
-  "./pages/author/author.js";
   "./pages/book_detail/book_detail.js";
   "./pages/star_book/star_book.js";
   "./pages/loan_book/loan_book.js";
   "./pages/loan_book_list/loan_book_list.js";
   "./pages/return_book/return_book.js";
-  "./pages/isbn/isbn.js";
   "./pages/history/history.js";
 }
 const _sfc_main = {
   globalData: {
-    user_id: [0]
+    userId: [0]
   }
 };
 const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/achider/Documents/GitHub/bms/App.vue"]]);

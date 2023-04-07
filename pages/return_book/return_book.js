@@ -6,22 +6,22 @@ const _sfc_main = {
     return {
       infData: {
         id: [],
-        img: [],
-        book_name: [],
+        imgUrl: [],
+        bookName: [],
         author: []
       }
     };
   },
   methods: {
     async getInf() {
-      const res = await utils_request.request("/get?type=loan_mark&user_id=" + getApp().globalData.user_id);
-      this.infData = res.results;
+      const res = await utils_request.request("/get?type=loan_mark&userId=" + getApp().globalData.userId);
+      this.infData = res;
     },
     async return_book(id) {
-      await utils_request.request("/history?type=0&id=" + id + "&user_id=" + getApp().globalData.user_id);
+      await utils_request.request("/history?type=0&id=" + id + "&userId=" + getApp().globalData.userId);
     },
     async update(id) {
-      await utils_request.request("/update?type=loan_mark&id=" + id + "&user_id=" + getApp().globalData.user_id);
+      await utils_request.request("/update?type=loan_mark&id=" + id + "&userId=" + getApp().globalData.userId);
     },
     tobook(id) {
       common_vendor.index.navigateTo({
@@ -54,9 +54,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.f($data.infData, (item, k0, i0) => {
       return {
-        a: item.img,
+        a: item.imgUrl,
         b: common_vendor.o(($event) => $options.tobook(item.id), item.id),
-        c: common_vendor.t(item.book_name),
+        c: common_vendor.t(item.bookName),
         d: common_vendor.t(item.author),
         e: common_vendor.o(($event) => $options.tobook(item.id), item.id),
         f: common_vendor.o(($event) => $options.toreturn(item.id), item.id),

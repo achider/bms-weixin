@@ -5,8 +5,8 @@ const _sfc_main = {
   data() {
     return {
       infData: {
-        img: [],
-        book_name: [],
+        imgUrl: [],
+        bookName: [],
         author: [],
         id: []
       }
@@ -14,8 +14,8 @@ const _sfc_main = {
   },
   methods: {
     async getInf() {
-      const res = await utils_request.request("/get?type=star_mark&user_id=" + getApp().globalData.user_id);
-      this.infData = res.results;
+      const res = await utils_request.request("/get?type=star_mark&userId=" + getApp().globalData.userId);
+      this.infData = res;
     }
   },
   onLoad() {

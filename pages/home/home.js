@@ -30,14 +30,14 @@ const _sfc_main = {
           type: "exit"
         }
       ],
-      user_id: getApp().globalData.user_id
+      userId: getApp().globalData.userId
     };
   },
   methods: {
     jump(type) {
       if (type == "exit") {
-        getApp().globalData.user_id = 0;
-        this.user_id = 0;
+        getApp().globalData.userId = 0;
+        this.userId = 0;
         this.username = "";
         this.password = "";
       } else
@@ -54,14 +54,14 @@ const _sfc_main = {
         });
       else {
         const res = await utils_request.request("/login?username=" + this.username + "&password=" + this.password);
-        if (res.results[0] != null) {
+        if (res.userId != null) {
           common_vendor.index.showToast({
             icon: "success",
             title: "登录成功",
             duration: 1e3
           });
-          getApp().globalData.user_id = res.results[0].user_id;
-          this.user_id = getApp().globalData.user_id;
+          getApp().globalData.userId = res.userId;
+          this.userId = getApp().globalData.userId;
         } else
           common_vendor.index.showToast({
             icon: "error",
@@ -79,7 +79,7 @@ const _sfc_main = {
         });
       else {
         const res = await utils_request.request("/register?username=" + this.username + "&password=" + this.password);
-        if (res.err == null)
+        if (res == true)
           common_vendor.index.showToast({
             icon: "success",
             title: "注册成功",
@@ -97,8 +97,8 @@ const _sfc_main = {
 };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
-    a: $data.user_id == 0
-  }, $data.user_id == 0 ? {
+    a: $data.userId == 0
+  }, $data.userId == 0 ? {
     b: _ctx.username,
     c: common_vendor.o(($event) => _ctx.username = $event.detail.value),
     d: _ctx.password,

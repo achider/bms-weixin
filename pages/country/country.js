@@ -5,7 +5,6 @@ const _sfc_main = {
   data() {
     return {
       country: [
-        "All_Countries",
         "American",
         "Argentina",
         "Australia",
@@ -46,12 +45,12 @@ const _sfc_main = {
       ],
       infData: {
         img: [],
-        book_name: [],
+        bookName: [],
         author: [],
         id: []
       },
       page: 1,
-      coun: ["All_Countries"],
+      coun: ["American"],
       scrollTop: 0,
       old: { scrollTop: 0 }
     };
@@ -74,7 +73,7 @@ const _sfc_main = {
     },
     async getCoun() {
       const res = await utils_request.request("/coun?coun=" + this.coun + "&page=" + this.page);
-      this.infData = res.results;
+      this.infData = res;
     },
     reachBottom() {
       this.page++, this.getCoun();
@@ -99,8 +98,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     b: common_vendor.f($data.infData, (item, k0, i0) => {
       return {
-        a: item.img,
-        b: common_vendor.t(item.book_name),
+        a: item.imgUrl,
+        b: common_vendor.t(item.bookName),
         c: common_vendor.t(item.author),
         d: item.id,
         e: common_vendor.o(($event) => $options.tobook(item.id), item.id)

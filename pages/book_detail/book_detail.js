@@ -5,23 +5,23 @@ const _sfc_main = {
   data() {
     return {
       infData: {
-        img: [],
-        book_name: [],
+        imgUrl: [],
+        bookName: [],
         author: [],
         id: [],
-        publishing_house: [],
+        publishingHouse: [],
         translator: [],
-        publish_date: [],
+        publishDate: [],
         pages: [],
-        ISBN: [],
+        isbn: [],
         price: [],
-        brief_introduction: [],
-        author_introduction: [],
-        loan_mark: []
+        briefIntroduction: [],
+        authorIntroduction: [],
+        loanMark: []
       },
       newData: {
-        star_mark: [],
-        loan_list: []
+        starMark: [],
+        loanList: []
       },
       id: [],
       type: [],
@@ -38,7 +38,7 @@ const _sfc_main = {
         });
       else {
         const res = await utils_request.request("/register?username=" + this.username + "&password=" + this.password);
-        if (res.err == null)
+        if (res == true)
           common_vendor.index.showToast({
             icon: "success",
             title: "注册成功",
@@ -61,13 +61,13 @@ const _sfc_main = {
         });
       else {
         const res = await utils_request.request("/login?username=" + this.username + "&password=" + this.password);
-        if (res.results[0] != null) {
+        if (res.userId != null) {
           common_vendor.index.showToast({
             icon: "success",
             title: "登录成功",
             duration: 1e3
           });
-          getApp().globalData.user_id = res.results[0].user_id;
+          getApp().globalData.userId = res.userId;
           this.show = 0;
           this.insert();
           this.getbook1();
@@ -81,36 +81,35 @@ const _sfc_main = {
     },
     async getbook() {
       const res = await utils_request.request("/book?id=" + this.id);
-      this.infData = res.results[0];
+      this.infData = res;
     },
     async getbook1() {
-      const re = await utils_request.request("/book1?id=" + this.id + "&user_id=" + getApp().globalData.user_id);
-      this.newData = re.results[0];
+      const res = await utils_request.request("/book1?id=" + this.id + "&userId=" + getApp().globalData.userId);
+      this.newData = res;
     },
     async update() {
-      await utils_request.request("/update?type=" + this.type + "&id=" + this.id + "&user_id=" + getApp().globalData.user_id);
+      await utils_request.request("/update?type=" + this.type + "&id=" + this.id + "&userId=" + getApp().globalData.userId);
     },
     async insert() {
-      await utils_request.request("/insert?id=" + this.id + "&user_id=" + getApp().globalData.user_id);
+      await utils_request.request("/insert?id=" + this.id + "&userId=" + getApp().globalData.userId);
     },
     async loan() {
-      await utils_request.request("/history?type=1&id=" + this.id + "&user_id=" + getApp().globalData.user_id);
+      await utils_request.request("/history?type=1&id=" + this.id + "&userId=" + getApp().globalData.userId);
     },
     addtoloanlist() {
-      if (getApp().globalData.user_id == 0)
+      if (getApp().globalData.userId == 0)
         this.tologin();
       else {
         this.type = "loan_list";
-        this.update();
-        this.getbook1();
+        this.update().then(() => this.getbook1());
         common_vendor.index.showToast({
-          title: this.newData.loan_list ? "从借书单中删除" : "已加入借书单",
+          title: this.newData.loanList ? "从借书单中删除" : "已加入借书单",
           duration: 1e3
         });
       }
     },
     toloan() {
-      if (getApp().globalData.user_id == 0)
+      if (getApp().globalData.userId == 0)
         this.tologin();
       else
         common_vendor.index.showModal({
@@ -119,9 +118,7 @@ const _sfc_main = {
           success: (res) => {
             if (res.confirm) {
               this.type = "loan_mark";
-              this.update();
-              this.loan();
-              this.getbook();
+              this.update().then(() => this.loan().then(() => this.getbook()));
               common_vendor.index.showToast({
                 title: "成功租借",
                 duration: 1e3
@@ -140,7 +137,7 @@ const _sfc_main = {
       });
     },
     toloanlist() {
-      if (getApp().globalData.user_id == 0)
+      if (getApp().globalData.userId == 0)
         this.tologin();
       else
         common_vendor.index.navigateTo({
@@ -148,14 +145,13 @@ const _sfc_main = {
         });
     },
     tostar() {
-      if (getApp().globalData.user_id == 0)
+      if (getApp().globalData.userId == 0)
         this.tologin();
       else {
         this.type = "star_mark";
-        this.update();
-        this.getbook1();
+        this.update().then(() => this.getbook1());
         common_vendor.index.showToast({
-          title: this.newData.star_mark == 0 ? "收藏成功" : "取消收藏",
+          title: this.newData.starMark == 0 ? "收藏成功" : "取消收藏",
           duration: 1e3
         });
       }
@@ -163,9 +159,7 @@ const _sfc_main = {
   },
   onLoad(option) {
     this.id = option.id;
-    this.insert();
-    this.getbook();
-    this.getbook1();
+    this.insert().then(() => this.getbook().then(() => this.getbook1()));
   }
 };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -179,9 +173,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     f: common_vendor.o(($event) => $options.register()),
     g: common_vendor.o(($event) => $options.login())
   } : common_vendor.e({
-    h: $data.infData.img,
-    i: common_vendor.t($data.infData.loan_mark ? "已出借" : "未出借"),
-    j: common_vendor.t($data.infData.book_name),
+    h: $data.infData.imgUrl,
+    i: common_vendor.t($data.infData.loanMark ? "已出借" : "未出借"),
+    j: common_vendor.t($data.infData.bookName),
     k: $data.infData.author
   }, $data.infData.author ? {
     l: common_vendor.t($data.infData.author)
@@ -190,34 +184,34 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   }, $data.infData.translator ? {
     n: common_vendor.t($data.infData.translator)
   } : {}, {
-    o: common_vendor.t($data.infData.publishing_house),
-    p: $data.infData.brief_introduction
-  }, $data.infData.brief_introduction ? {
-    q: common_vendor.t($data.infData.brief_introduction)
+    o: common_vendor.t($data.infData.publishingHouse),
+    p: $data.infData.briefIntroduction
+  }, $data.infData.briefIntroduction ? {
+    q: common_vendor.t($data.infData.briefIntroduction)
   } : {}, {
-    r: $data.infData.author_introduction
-  }, $data.infData.author_introduction ? {
-    s: common_vendor.t($data.infData.author_introduction)
+    r: $data.infData.authorIntroduction
+  }, $data.infData.authorIntroduction ? {
+    s: common_vendor.t($data.infData.authorIntroduction)
   } : {}, {
     t: common_vendor.t($data.infData.price),
     v: common_vendor.t($data.infData.pages),
-    w: common_vendor.t($data.infData.ISBN),
-    x: common_vendor.t($data.infData.publish_date),
-    y: $data.newData.star_mark == 0
-  }, $data.newData.star_mark == 0 ? {
+    w: common_vendor.t($data.infData.isbn),
+    x: common_vendor.t($data.infData.publishDate),
+    y: $data.newData.starMark == 0
+  }, $data.newData.starMark == 0 ? {
     z: common_vendor.o(($event) => $options.tostar())
   } : {
     A: common_vendor.o(($event) => $options.tostar())
   }, {
     B: common_vendor.o(($event) => $options.toloanlist()),
-    C: $data.newData.loan_list == 1
-  }, $data.newData.loan_list == 1 ? {
+    C: $data.newData.loanList == 1
+  }, $data.newData.loanList == 1 ? {
     D: common_vendor.o(($event) => $options.addtoloanlist())
   } : {
     E: common_vendor.o(($event) => $options.addtoloanlist())
   }, {
-    F: $data.infData.loan_mark == 1
-  }, $data.infData.loan_mark == 1 ? {} : {
+    F: $data.infData.loanMark == 1
+  }, $data.infData.loanMark == 1 ? {} : {
     G: common_vendor.o(($event) => $options.toloan())
   }));
 }

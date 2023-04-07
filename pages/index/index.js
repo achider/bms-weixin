@@ -32,7 +32,7 @@ const _sfc_main = {
       },
       infData: {
         img: [],
-        book_name: [],
+        bookName: [],
         author: [],
         id: []
       },
@@ -42,9 +42,7 @@ const _sfc_main = {
   },
   methods: {
     clicklist(type) {
-      common_vendor.index.navigateTo({
-        url: "../" + type + "/" + type
-      });
+      this.type = type;
     },
     tofind() {
       common_vendor.index.navigateTo({
@@ -56,17 +54,20 @@ const _sfc_main = {
         url: "../book_detail/book_detail?id=" + id
       });
     },
+    async create() {
+      await utils_request.request("/create");
+    },
     async getImg() {
       const res = await utils_request.request("/img");
-      this.imgData = res.results;
+      this.imgData = res;
     },
     async getInf() {
       const res = await utils_request.request("/inf?page=" + this.page);
-      this.infData = res.results;
+      this.infData = res;
     }
   },
   onLoad() {
-    this.getImg(), this.getInf();
+    this.getImg(), this.create().then(() => this.getInf());
   },
   onReachBottom() {
     this.page++, this.getInf();
@@ -89,18 +90,41 @@ if (!Math) {
   _easycom_showBooks();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return {
-    a: _ctx.id,
-    b: common_vendor.o(($event) => _ctx.id = $event.detail.value),
-    c: common_vendor.o(($event) => $options.tofind()),
-    d: common_vendor.f($data.imgData, (item, k0, i0) => {
+  return common_vendor.e({
+    a: $data.type == "book_name"
+  }, $data.type == "book_name" ? {
+    b: _ctx.id,
+    c: common_vendor.o(($event) => _ctx.id = $event.detail.value)
+  } : {}, {
+    d: $data.type == "publishing_house"
+  }, $data.type == "publishing_house" ? {
+    e: _ctx.id,
+    f: common_vendor.o(($event) => _ctx.id = $event.detail.value)
+  } : {}, {
+    g: $data.type == "author"
+  }, $data.type == "author" ? {
+    h: _ctx.id,
+    i: common_vendor.o(($event) => _ctx.id = $event.detail.value)
+  } : {}, {
+    j: $data.type == "translator"
+  }, $data.type == "translator" ? {
+    k: _ctx.id,
+    l: common_vendor.o(($event) => _ctx.id = $event.detail.value)
+  } : {}, {
+    m: $data.type == "isbn"
+  }, $data.type == "isbn" ? {
+    n: _ctx.id,
+    o: common_vendor.o(($event) => _ctx.id = $event.detail.value)
+  } : {}, {
+    p: common_vendor.o(($event) => $options.tofind()),
+    q: common_vendor.f($data.imgData, (item, k0, i0) => {
       return {
-        a: item.img,
+        a: item.imgUrl,
         b: common_vendor.o(($event) => $options.tobook(item.id), item.id),
         c: item.id
       };
     }),
-    e: common_vendor.f($data.iconData, (item, index, i0) => {
+    r: common_vendor.f($data.iconData, (item, index, i0) => {
       return {
         a: item.iconPath,
         b: common_vendor.t(item.text),
@@ -108,10 +132,10 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         d: common_vendor.o(($event) => $options.clicklist(item.type), index)
       };
     }),
-    f: common_vendor.p({
+    s: common_vendor.p({
       infData: $data.infData
     })
-  };
+  });
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/achider/Documents/GitHub/bms/pages/index/index.vue"]]);
 wx.createPage(MiniProgramPage);

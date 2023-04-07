@@ -6,7 +6,7 @@ const _sfc_main = {
     return {
       infData: {
         img: [],
-        book_name: [],
+        bookName: [],
         author: []
       },
       page: [1],
@@ -17,7 +17,7 @@ const _sfc_main = {
   methods: {
     async find() {
       const res = await utils_request.request("/find?type=" + this.type + "&id=" + this.id + "&page=" + this.page);
-      this.infData = res.results;
+      this.infData = res;
     }
   },
   onLoad(option) {

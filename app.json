@@ -4,15 +4,11 @@
     "pages/home/home",
     "pages/country/country",
     "pages/book_list/book_list",
-    "pages/publishing_house/publishing_house",
-    "pages/translator/translator",
-    "pages/author/author",
     "pages/book_detail/book_detail",
     "pages/star_book/star_book",
     "pages/loan_book/loan_book",
     "pages/loan_book_list/loan_book_list",
     "pages/return_book/return_book",
-    "pages/isbn/isbn",
     "pages/history/history"
   ],
   "window": {

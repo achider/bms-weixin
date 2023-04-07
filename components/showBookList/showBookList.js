@@ -14,9 +14,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.f($props.infData, (item, k0, i0) => {
       return {
-        a: common_vendor.t(item.book_name),
-        b: item.img,
-        c: common_vendor.t(item.book_name),
+        a: common_vendor.t(item.bookName),
+        b: item.imgUrl,
+        c: common_vendor.t(item.bookName),
         d: common_vendor.t(item.author),
         e: item.id,
         f: common_vendor.o(($event) => $options.tobook(item.id), item.id)
